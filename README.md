@@ -1,10 +1,10 @@
-# Smart Resume Screener 📄🤖
+# Smart Resume Screener 
 
 Hi! Welcome to my **Smart Resume Screener** project. I built this full-stack application as a complete recruitment platform to help recruiters parse PDF resumes, evaluate candidates using AI, and rank applicants based on job requirements.
 
 ---
 
-## 🌟 About My Project
+##  About My Project
 
 In recruitment, manually reviewing hundreds of resumes takes hours. I designed and built this Spring Boot application to solve that problem:
 
@@ -16,7 +16,7 @@ In recruitment, manually reviewing hundreds of resumes takes hours. I designed a
 
 ---
 
-## 🛠️ Tech Stack I Used
+## Tech Stack I Used
 
 - **Backend**: Java 17, Spring Boot 3, Spring Data JPA, Hibernate, Apache PDFBox, Jackson
 - **Frontend**: HTML5, CSS3, Vanilla JavaScript (ES6 `fetch` API)
@@ -49,7 +49,7 @@ smart-resume-screener/
 
 ---
 
-## 🚀 How to Run My Project
+## How to Run My Project
 
 1. **Clone / Download** this repository.
 2. **Start the Application**:
@@ -63,6 +63,6 @@ smart-resume-screener/
 
 ---
 
-## 👨‍💻 Author
+## Author
 
 Built by **Adithya**
