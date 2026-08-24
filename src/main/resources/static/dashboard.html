@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Smart Resume Screener</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo-icon">SR</div>
+                <div class="sidebar-brand">Smart Screener</div>
+            </div>
+            <ul class="sidebar-menu">
+                <li class="menu-item active"><a href="dashboard.html">Dashboard</a></li>
+                <li class="menu-item"><a href="screening.html">Screen Candidates</a></li>
+                <li class="menu-item"><a href="resumes.html">Resumes</a></li>
+                <li class="menu-item"><a href="jobs.html">Jobs</a></li>
+                <li class="menu-item"><a href="results.html">Results</a></li>
+            </ul>
+            <div class="sidebar-footer">
+                <div class="recruiter-badge">
+                    <div class="avatar">HR</div>
+                    <div class="user-info">
+                        <span class="user-name">Recruiter Portal</span>
+                        <span class="user-role">Talent Acquisition</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Wrapper -->
+        <div class="main-wrapper">
+            <!-- Top Header -->
+            <header class="top-header">
+                <button class="mobile-toggle" id="mobileToggle">☰</button>
+                <div class="header-search">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" placeholder="Search candidates, skills, jobs...">
+                </div>
+                <div class="header-actions">
+                    <button class="btn-icon" title="Notifications">🔔</button>
+                    <a href="screening.html" class="btn btn-primary btn-sm">+ Screen Candidate</a>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <main class="content-area">
+                <div class="page-header">
+                    <div>
+                        <h1 class="page-title">Good morning</h1>
+                        <p class="page-subtitle">Review your candidate pipeline and find the best matches.</p>
+                    </div>
+                    <a href="screening.html" class="btn btn-primary">🚀 Screen New Candidates</a>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon indigo">📄</div>
+                        <div>
+                            <div class="stat-label">Total Candidates</div>
+                            <div class="stat-value" id="statCandidates">0</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon sky">💼</div>
+                        <div>
+                            <div class="stat-label">Active Jobs</div>
+                            <div class="stat-value" id="statJobs">0</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon emerald">🎯</div>
+                        <div>
+                            <div class="stat-label">Screened Candidates</div>
+                            <div class="stat-value" id="statScreened">0</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon amber">⭐</div>
+                        <div>
+                            <div class="stat-label">Avg Match Score</div>
+                            <div class="stat-value" id="statAvgScore">0.0</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Screening Activity -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Recent Screening Activity</h2>
+                        <a href="results.html" class="btn btn-secondary btn-sm">View All Results</a>
+                    </div>
+                    <div class="table-container">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Candidate</th>
+                                    <th>Position</th>
+                                    <th>Match Score</th>
+                                    <th>Matching Skills</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="recentTableBody">
+                                <tr>
+                                    <td colspan="5" style="text-align: center; color: var(--text-muted);">Loading screening activity...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Top Candidates Section -->
+                <div class="card-header mt-4">
+                    <h2 class="card-title">Top Shortlisted Candidates</h2>
+                </div>
+                <div class="candidate-grid" id="topCandidatesGrid">
+                    <!-- Dynamic Candidate Cards -->
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

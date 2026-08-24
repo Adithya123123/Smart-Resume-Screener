@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidate Scorecard - Smart Resume Screener</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo-icon">SR</div>
+                <div class="sidebar-brand">Smart Screener</div>
+            </div>
+            <ul class="sidebar-menu">
+                <li class="menu-item"><a href="dashboard.html">Dashboard</a></li>
+                <li class="menu-item"><a href="screening.html">Screen Candidates</a></li>
+                <li class="menu-item"><a href="resumes.html">Resumes</a></li>
+                <li class="menu-item"><a href="jobs.html">Jobs</a></li>
+                <li class="menu-item active"><a href="results.html">Results</a></li>
+            </ul>
+            <div class="sidebar-footer">
+                <div class="recruiter-badge">
+                    <div class="avatar">HR</div>
+                    <div class="user-info">
+                        <span class="user-name">Recruiter Portal</span>
+                        <span class="user-role">Talent Acquisition</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Wrapper -->
+        <div class="main-wrapper">
+            <header class="top-header">
+                <button class="mobile-toggle" id="mobileToggle">☰</button>
+                <a href="results.html" class="btn btn-secondary btn-sm">← Back to Results</a>
+            </header>
+
+            <main class="content-area">
+                <!-- Candidate Header Card -->
+                <div class="card">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px;">
+                        <div>
+                            <h1 class="page-title" id="candName">Loading Candidate...</h1>
+                            <div style="font-size: 16px; color: var(--primary); font-weight: 600; margin-top: 4px;" id="candJobTitle">Position Name</div>
+                            <div class="flex gap-4 mt-4" style="color: var(--text-secondary); font-size: 14px;">
+                                <span>📧 <span id="candEmail">--</span></span>
+                                <span>📞 <span id="candPhone">--</span></span>
+                            </div>
+                        </div>
+
+                        <!-- Score Banner -->
+                        <div style="background: var(--background); border: 1px solid var(--border); padding: 20px 32px; border-radius: var(--radius-lg); text-align: center;">
+                            <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; color: var(--text-muted); letter-spacing: 1px;">AI Match Score</div>
+                            <div style="font-size: 36px; font-weight: 800; margin: 4px 0;" id="scoreDisplay">0.0</div>
+                            <div id="statusBadge" class="score-badge strong">Loading</div>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-2 mt-4" style="border-top: 1px solid var(--border); padding-top: 16px;">
+                        <button class="btn btn-primary btn-sm" id="shortlistBtn">★ Shortlist Candidate</button>
+                        <a href="#" id="downloadResumeBtn" class="btn btn-secondary btn-sm">📄 View Original Resume</a>
+                    </div>
+                </div>
+
+                <!-- 2-Column Evaluation Grid -->
+                <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 24px;">
+                    <!-- Left Column: AI Justification & Skills -->
+                    <div>
+                        <!-- AI Explanation Card -->
+                        <div class="card">
+                            <h2 class="card-title" style="margin-bottom: 12px;">🤖 AI Match Evaluation & Justification</h2>
+                            <div style="font-size: 15px; color: var(--text-primary); line-height: 1.7; background-color: var(--background); padding: 16px; border-radius: var(--radius-md); border-left: 4px solid var(--primary);" id="aiReason">
+                                Analyzing evaluation output...
+                            </div>
+                        </div>
+
+                        <!-- Skills Matrix -->
+                        <div class="card">
+                            <h2 class="card-title">Skill Comparison Matrix</h2>
+                            <div style="margin-top: 16px;">
+                                <div style="font-weight: 600; font-size: 14px; color: #166534; margin-bottom: 8px;">✓ MATCHING REQUIRED SKILLS</div>
+                                <div id="matchingSkillsBox" style="margin-bottom: 20px;"></div>
+
+                                <div style="font-weight: 600; font-size: 14px; color: #991b1b; margin-bottom: 8px;">✗ MISSING SKILLS</div>
+                                <div id="missingSkillsBox"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Verification Checks -->
+                    <div>
+                        <div class="card">
+                            <h2 class="card-title">Requirement Verification</h2>
+                            
+                            <div style="margin-top: 16px; display: flex; flex-direction: column; gap: 16px;">
+                                <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px; background: var(--background); border-radius: var(--radius-md);">
+                                    <div>
+                                        <div style="font-weight: 600; font-size: 14px;">Experience Match</div>
+                                        <div style="font-size: 12px; color: var(--text-secondary);">Relevant experience</div>
+                                    </div>
+                                    <span id="expCheckBadge" class="score-badge strong">Verified</span>
+                                </div>
+
+                                <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px; background: var(--background); border-radius: var(--radius-md);">
+                                    <div>
+                                        <div style="font-weight: 600; font-size: 14px;">Education Match</div>
+                                        <div style="font-size: 12px; color: var(--text-secondary);">Degree alignment</div>
+                                    </div>
+                                    <span id="eduCheckBadge" class="score-badge strong">Verified</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Extracted Resume Details -->
+                        <div class="card">
+                            <h2 class="card-title">Extracted Details</h2>
+                            <div style="font-size: 13px; color: var(--text-secondary); margin-top: 12px;" id="extractedDetailsBox">
+                                Loading candidate resume details...
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/candidate.js"></script>
+</body>
+</html>

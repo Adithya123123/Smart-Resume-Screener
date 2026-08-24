@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumes Repository - Smart Resume Screener</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo-icon">SR</div>
+                <div class="sidebar-brand">Smart Screener</div>
+            </div>
+            <ul class="sidebar-menu">
+                <li class="menu-item"><a href="dashboard.html">Dashboard</a></li>
+                <li class="menu-item"><a href="screening.html">Screen Candidates</a></li>
+                <li class="menu-item active"><a href="resumes.html">Resumes</a></li>
+                <li class="menu-item"><a href="jobs.html">Jobs</a></li>
+                <li class="menu-item"><a href="results.html">Results</a></li>
+            </ul>
+            <div class="sidebar-footer">
+                <div class="recruiter-badge">
+                    <div class="avatar">HR</div>
+                    <div class="user-info">
+                        <span class="user-name">Recruiter Portal</span>
+                        <span class="user-role">Talent Acquisition</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Wrapper -->
+        <div class="main-wrapper">
+            <header class="top-header">
+                <button class="mobile-toggle" id="mobileToggle">☰</button>
+                <div class="header-search">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="resumeSearchInput" placeholder="Search resumes by candidate, skill...">
+                </div>
+            </header>
+
+            <main class="content-area">
+                <div class="page-header">
+                    <div>
+                        <h1 class="page-title">Candidate Resumes</h1>
+                        <p class="page-subtitle">Repository of all processed PDF candidate resumes.</p>
+                    </div>
+                    <a href="screening.html" class="btn btn-primary">+ Upload & Screen PDF</a>
+                </div>
+
+                <!-- Resumes Table Card -->
+                <div class="card">
+                    <div class="table-container">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Candidate</th>
+                                    <th>PDF File</th>
+                                    <th>Extracted Skills</th>
+                                    <th>Uploaded Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="resumesTableBody">
+                                <tr>
+                                    <td colspan="5" style="text-align: center; color: var(--text-muted);">Loading resumes...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/resumes.js"></script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screen Candidates - Smart Resume Screener</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo-icon">SR</div>
+                <div class="sidebar-brand">Smart Screener</div>
+            </div>
+            <ul class="sidebar-menu">
+                <li class="menu-item"><a href="dashboard.html">Dashboard</a></li>
+                <li class="menu-item active"><a href="screening.html">Screen Candidates</a></li>
+                <li class="menu-item"><a href="resumes.html">Resumes</a></li>
+                <li class="menu-item"><a href="jobs.html">Jobs</a></li>
+                <li class="menu-item"><a href="results.html">Results</a></li>
+            </ul>
+            <div class="sidebar-footer">
+                <div class="recruiter-badge">
+                    <div class="avatar">HR</div>
+                    <div class="user-info">
+                        <span class="user-name">Recruiter Portal</span>
+                        <span class="user-role">Talent Acquisition</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Wrapper -->
+        <div class="main-wrapper">
+            <header class="top-header">
+                <button class="mobile-toggle" id="mobileToggle">☰</button>
+                <div class="header-search">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" placeholder="Search...">
+                </div>
+            </header>
+
+            <main class="content-area">
+                <div class="page-header">
+                    <div>
+                        <h1 class="page-title">Screen Candidates</h1>
+                        <p class="page-subtitle">Select a target job position and upload PDF resumes for AI evaluation.</p>
+                    </div>
+                </div>
+
+                <!-- Workflow Step 1: Select Job -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Step 1: Select Job Position</h2>
+                        <a href="jobs.html" class="btn btn-secondary btn-sm">+ Create New Job</a>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="jobSelect">Target Job Position</label>
+                        <select id="jobSelect" class="form-control">
+                            <option value="">-- Loading positions --</option>
+                        </select>
+                    </div>
+                    <div id="jobDetailsBox" style="background-color: var(--background); padding: 16px; border-radius: var(--radius-md); display: none;">
+                        <div style="font-weight: 600; margin-bottom: 4px;" id="selectedJobTitle"></div>
+                        <div style="font-size: 13px; color: var(--text-secondary); margin-bottom: 8px;" id="selectedJobSkills"></div>
+                        <div style="font-size: 13px; color: var(--text-secondary);" id="selectedJobDesc"></div>
+                    </div>
+                </div>
+
+                <!-- Workflow Step 2: Upload Resumes -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Step 2: Upload PDF Resumes</h2>
+                    </div>
+                    
+                    <div class="dropzone" id="dropzone">
+                        <div class="dropzone-icon">📥</div>
+                        <div class="dropzone-text">Drag & drop candidate PDF resumes here</div>
+                        <div class="dropzone-subtext">or click to browse local files (PDF only, up to 10MB)</div>
+                        <input type="file" id="fileInput" accept=".pdf" multiple style="display: none;">
+                    </div>
+
+                    <!-- Uploaded Files Queue -->
+                    <div class="mt-4" id="filesQueueContainer" style="display: none;">
+                        <div style="font-weight: 600; font-size: 14px; margin-bottom: 10px;">Staged PDF Resumes:</div>
+                        <div id="filesList" style="display: flex; flex-direction: column; gap: 8px;"></div>
+                    </div>
+                </div>
+
+                <!-- Workflow Step 3: Action -->
+                <div style="display: flex; justify-content: flex-end; margin-top: 20px;">
+                    <button id="startScreeningBtn" class="btn btn-primary" style="padding: 12px 32px; font-size: 16px;">
+                        ⚡ Start AI Screening Process
+                    </button>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="spinner"></div>
+        <h2 style="font-size: 20px; font-weight: 700; margin-bottom: 8px;">Analyzing resumes with LLM AI...</h2>
+        <p style="font-size: 14px; opacity: 0.9;" id="loadingStatusText">Extracting PDF text and evaluating match scores...</p>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/screening.js"></script>
+</body>
+</html>

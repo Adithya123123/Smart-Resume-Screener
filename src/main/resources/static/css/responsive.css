@@ -1,0 +1,98 @@
+/* ==========================================================================
+   SMART RESUME SCREENER - RESPONSIVE STYLESHEET
+   ========================================================================== */
+
+/* Large Laptops & Desktops (<= 1280px) */
+@media (max-width: 1280px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Tablets & Small Laptops (<= 1024px) */
+@media (max-width: 1024px) {
+    :root {
+        --sidebar-width: 220px;
+    }
+    .content-area {
+        padding: 24px;
+    }
+}
+
+/* Mobile & Tablets (<= 768px) */
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+        width: 260px;
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    .main-wrapper {
+        margin-left: 0;
+    }
+
+    .mobile-toggle {
+        display: block;
+    }
+
+    .top-header {
+        padding: 0 16px;
+    }
+
+    .header-search {
+        width: 200px;
+    }
+
+    .content-area {
+        padding: 16px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .page-header {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .candidate-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Mobile Screens (<= 430px, 390px, 375px) */
+@media (max-width: 480px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .header-search {
+        display: none;
+    }
+
+    .stat-card {
+        padding: 14px;
+    }
+
+    .stat-value {
+        font-size: 18px;
+    }
+
+    .card {
+        padding: 16px;
+    }
+
+    .table th, .table td {
+        padding: 10px 8px;
+        font-size: 12px;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}

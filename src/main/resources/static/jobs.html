@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Positions - Smart Resume Screener</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo-icon">SR</div>
+                <div class="sidebar-brand">Smart Screener</div>
+            </div>
+            <ul class="sidebar-menu">
+                <li class="menu-item"><a href="dashboard.html">Dashboard</a></li>
+                <li class="menu-item"><a href="screening.html">Screen Candidates</a></li>
+                <li class="menu-item"><a href="resumes.html">Resumes</a></li>
+                <li class="menu-item active"><a href="jobs.html">Jobs</a></li>
+                <li class="menu-item"><a href="results.html">Results</a></li>
+            </ul>
+            <div class="sidebar-footer">
+                <div class="recruiter-badge">
+                    <div class="avatar">HR</div>
+                    <div class="user-info">
+                        <span class="user-name">Recruiter Portal</span>
+                        <span class="user-role">Talent Acquisition</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Wrapper -->
+        <div class="main-wrapper">
+            <header class="top-header">
+                <button class="mobile-toggle" id="mobileToggle">☰</button>
+                <div class="header-search">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" placeholder="Search jobs...">
+                </div>
+            </header>
+
+            <main class="content-area">
+                <div class="page-header">
+                    <div>
+                        <h1 class="page-title">Job Positions</h1>
+                        <p class="page-subtitle">Manage open job roles and requirements for AI screening.</p>
+                    </div>
+                    <button class="btn btn-primary" id="openCreateModalBtn">+ Create New Job</button>
+                </div>
+
+                <!-- Create Job Form Card (Collapsible) -->
+                <div class="card" id="createJobCard" style="display: none;">
+                    <div class="card-header">
+                        <h2 class="card-title">Create Job Description</h2>
+                        <button class="btn btn-secondary btn-sm" id="closeCreateModalBtn">✕ Cancel</button>
+                    </div>
+                    <form id="createJobForm">
+                        <div class="form-group">
+                            <label class="form-label" for="jobTitleInput">Job Title *</label>
+                            <input type="text" id="jobTitleInput" class="form-control" placeholder="e.g. Java Backend Developer" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="jobSkillsInput">Required Skills</label>
+                            <input type="text" id="jobSkillsInput" class="form-control" placeholder="e.g. Java, Spring Boot, MySQL, REST API, Microservices">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="jobDescInput">Job Description *</label>
+                            <textarea id="jobDescInput" class="form-control" placeholder="Enter detailed job description, responsibilities, and qualifications..." required></textarea>
+                        </div>
+
+                        <div style="display: flex; justify-content: flex-end; gap: 10px;">
+                            <button type="submit" class="btn btn-primary">Save Job Description</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Jobs Table Card -->
+                <div class="card">
+                    <div class="table-container">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Job Title</th>
+                                    <th>Required Skills</th>
+                                    <th>Created Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="jobsTableBody">
+                                <tr>
+                                    <td colspan="4" style="text-align: center; color: var(--text-muted);">Loading job positions...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/jobs.js"></script>
+</body>
+</html>
